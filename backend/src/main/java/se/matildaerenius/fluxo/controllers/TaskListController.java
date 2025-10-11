@@ -10,7 +10,7 @@ import se.matildaerenius.fluxo.services.TaskListService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/task-lists")
+@RequestMapping(path = "/task-lists")
 public class TaskListController {
 
     private final TaskListService taskListService;
