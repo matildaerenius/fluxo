@@ -1,9 +1,8 @@
 package se.matildaerenius.fluxo.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import se.matildaerenius.fluxo.domain.dto.TaskListDto;
+import se.matildaerenius.fluxo.domain.entities.TaskList;
 import se.matildaerenius.fluxo.mappers.TaskListMapper;
 import se.matildaerenius.fluxo.services.TaskListService;
 
@@ -27,5 +26,13 @@ public class TaskListController {
                 .stream()
                 .map(taskListMapper::toDto)
                 .toList();
+    }
+
+    @PostMapping
+    public TaskListDto createTaskList(@RequestBody TaskListDto taskListDto) {
+        TaskList createdTaskList = taskListService.createTaskList(
+                taskListMapper.fromDto(taskListDto)
+        );
+        return taskListMapper.toDto(createdTaskList);
     }
 }
