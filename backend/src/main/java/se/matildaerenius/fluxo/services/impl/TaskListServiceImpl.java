@@ -1,5 +1,6 @@
 package se.matildaerenius.fluxo.services.impl;
 
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import se.matildaerenius.fluxo.domain.entities.TaskList;
 import se.matildaerenius.fluxo.repositories.TaskListRepository;
@@ -50,6 +51,7 @@ public class TaskListServiceImpl implements TaskListService {
         return taskListRepository.findById(id);
     }
 
+    @Transactional
     @Override
     public TaskList updateTaskList(UUID taskListId, TaskList taskList) {
         if (null == taskList.getId()) {
