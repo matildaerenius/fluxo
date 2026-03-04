@@ -1,4 +1,4 @@
-package se.matildaerenius.fluxo.ui.theme
+package se.matildaerenius.fluxo.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 

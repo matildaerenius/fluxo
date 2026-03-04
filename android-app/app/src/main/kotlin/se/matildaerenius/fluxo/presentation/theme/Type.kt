@@ -1,4 +1,4 @@
-package se.matildaerenius.fluxo.ui.theme
+package se.matildaerenius.fluxo.presentation.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
