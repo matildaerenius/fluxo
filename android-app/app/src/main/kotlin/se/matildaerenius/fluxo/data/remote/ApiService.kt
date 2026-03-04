@@ -32,4 +32,25 @@ interface ApiService {
         @Body task: TaskDto
     ): TaskDto
 
+    @GET("task-lists/{id}")
+    suspend fun getTaskList(@Path("id") id: String): TaskListDto
+
+    @PUT("task-lists/{id}")
+    suspend fun updateTaskList(
+        @Path("id") id: String,
+        @Body taskList: TaskListDto
+    ): TaskListDto
+
+    @GET("task-lists/{taskListId}/tasks/{taskId}")
+    suspend fun getTask(
+        @Path("taskListId") taskListId: String,
+        @Path("taskId") taskId: String
+    ): TaskDto
+
+    @DELETE("task-lists/{taskListId}/tasks/{taskId}")
+    suspend fun deleteTask(
+        @Path("taskListId") taskListId: String,
+        @Path("taskId") taskId: String
+    )
+
 }

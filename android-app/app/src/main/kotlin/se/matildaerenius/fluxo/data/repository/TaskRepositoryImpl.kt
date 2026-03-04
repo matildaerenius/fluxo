@@ -37,4 +37,21 @@ class TaskRepositoryImpl(
         val resultDto = apiService.updateTask(taskListId, taskId, task.toDto())
         return resultDto.toDomain()
     }
+
+    override suspend fun getTaskList(id: String): TaskList {
+        return apiService.getTaskList(id).toDomain()
+    }
+
+    override suspend fun updateTaskList(id: String, taskList: TaskList): TaskList {
+        val resultDto = apiService.updateTaskList(id, taskList.toDto())
+        return resultDto.toDomain()
+    }
+
+    override suspend fun getTask(taskListId: String, taskId: String): Task {
+        return apiService.getTask(taskListId, taskId).toDomain()
+    }
+
+    override suspend fun deleteTask(taskListId: String, taskId: String) {
+        apiService.deleteTask(taskListId, taskId)
+    }
 }
