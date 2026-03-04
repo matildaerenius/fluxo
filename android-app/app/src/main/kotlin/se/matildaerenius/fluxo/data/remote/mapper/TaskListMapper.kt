@@ -10,3 +10,11 @@ fun TaskListDto.toDomain(): TaskList {
         description = this.description
     )
 }
+
+fun TaskList.toDto(): TaskListDto {
+    return TaskListDto(
+        id = this.id.ifEmpty { null },
+        title = this.title,
+        description = this.description
+    )
+}
