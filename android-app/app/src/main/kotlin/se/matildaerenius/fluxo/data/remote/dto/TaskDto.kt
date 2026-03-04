@@ -6,6 +6,8 @@ import kotlinx.serialization.Serializable
 data class TaskDto(
     val id: String? = null,
     val title: String,
-    val isCompleted: Boolean = false,
-    val priority: Int = 1
+    val description: String? = null,
+    val dueDate: String? = null,
+    val status: String = "OPEN",
+    val priority: String = "MEDIUM"
 )
